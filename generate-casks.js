@@ -1,43 +1,26 @@
 #!/usr/bin/env node
 
+var cp = require('child_process');
 var fs = require('fs');
-var https = require('https');
 
+var rm = require('rimraf').sync;
+
+cleanup();
 deletePriorCasks();
-
-https.get({
-    hostname: 'api.github.com',
-    port: 443,
-    path: '/repos/larsenwork/monoid/contents?ref=release',
-    headers: {accept: 'application/vnd.github.v3+json', 'user-agent': 'node-http'}
-  }, function (res) {
-    var body = '';
-
-    res
-      .on('data', function(d) {
-        body += d;
-      })
-
-      .on('end', function () {
-        extractData(JSON.parse(body));
-      });
-});
+cloneMonoid();
+extractData();
+cleanup();
 
 function deletePriorCasks() {
-  fs.readdirSync('.')
-    .filter(function (file) {
-      return file.substr(-3) === '.rb';
-    })
-    .forEach(function (file) {
-      fs.unlinkSync(file);
-    });
+  rm('*.rb');
+}
+
+function cloneMonoid() {
+  cp.execSync('git clone --depth 1 -b release https://github.com/larsenwork/monoid _tmp');
 }
 
 function extractData(data) {
-  data
-    .map(function (file) {
-      return file.name;
-    })
+  fs.readdirSync('_tmp')
     .filter(function (file) {
       return file.substr(-4) === '.zip';
     })
@@ -75,4 +58,8 @@ function createCask(file) {
   EOS
 end
 `
+}
+
+function cleanup() {
+  rm('_tmp');
 }

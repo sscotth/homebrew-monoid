@@ -1,0 +1,22 @@
+{
+  "name": "homebrew-monoid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generate-casks.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sscotth/homebrew-monoid.git"
+  },
+  "author": "Scott Humphries <scott@sscotth.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sscotth/homebrew-monoid/issues"
+  },
+  "homepage": "https://github.com/sscotth/homebrew-monoid#readme",
+  "dependencies": {
+    "rimraf": "^2.4.2"
+  }
+}
