@@ -36,6 +36,15 @@ function createCask(file) {
   var variant = fileName.substr(7);
   var seperator = variant ? '-' : '';
 
+  var caveat = file === 'Monoid.zip'
+    ? `
+
+  caveats <<-EOS.undent
+    #{token} only installs the Normal Weight, Medium LineHeight, with Ligatures variant.
+    To get other styles, please tap the larsenwork/monoid repo
+      brew tap larsenwork/monoid
+  EOS`
+    : '';
 
   return `cask :v1 => 'font-${fileName.toLowerCase()}' do
   version :latest
@@ -49,13 +58,7 @@ function createCask(file) {
   font 'Monoid-Bold${seperator}${variant}.ttf'
   font 'Monoid-Oblique${seperator}${variant}.ttf'
   font 'Monoid-Regular${seperator}${variant}.ttf'
-  font 'Monoid-Retina${seperator}${variant}.ttf'
-
-  caveats <<-EOS.undent
-    #{token} only installs the Normal Weight, Medium LineHeight, with Ligatures variant.
-    To get other styles, please tap the larsenwork/monoid repo
-      brew tap larsenwork/monoid
-  EOS
+  font 'Monoid-Retina${seperator}${variant}.ttf'${caveat}
 end
 `
 }
