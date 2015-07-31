@@ -8,13 +8,7 @@ cask :v1 => 'font-monoid-tight-large-0-l' do
   license :ofl
 
   font 'Monoid-Bold-Tight-Large-0-l.ttf'
-  font 'Monoid-Oblique-Tight-Large-0-l.ttf'
+  font 'Monoid-Italic-Tight-Large-0-l.ttf'
   font 'Monoid-Regular-Tight-Large-0-l.ttf'
   font 'Monoid-Retina-Tight-Large-0-l.ttf'
-
-  caveats <<-EOS.undent
-    #{token} only installs the Normal Weight, Medium LineHeight, with Ligatures variant.
-    To get other styles, please tap the larsenwork/monoid repo
-      brew tap larsenwork/monoid
-  EOS
 end

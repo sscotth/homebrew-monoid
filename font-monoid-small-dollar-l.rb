@@ -8,13 +8,7 @@ cask :v1 => 'font-monoid-small-dollar-l' do
   license :ofl
 
   font 'Monoid-Bold-Small-Dollar-l.ttf'
-  font 'Monoid-Oblique-Small-Dollar-l.ttf'
+  font 'Monoid-Italic-Small-Dollar-l.ttf'
   font 'Monoid-Regular-Small-Dollar-l.ttf'
   font 'Monoid-Retina-Small-Dollar-l.ttf'
-
-  caveats <<-EOS.undent
-    #{token} only installs the Normal Weight, Medium LineHeight, with Ligatures variant.
-    To get other styles, please tap the larsenwork/monoid repo
-      brew tap larsenwork/monoid
-  EOS
 end
