@@ -41,7 +41,7 @@ function createCask(file) {
 
   caveats <<-EOS.undent
     #{token} only installs the Normal Weight, Medium LineHeight, with Ligatures variant.
-    To get other styles, please tap the sscotth/monoid repo
+    To get other styles, please tap the sscotth/homebrew-monoid repo
       brew tap sscotth/monoid
   EOS`
     : '';
