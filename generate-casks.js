@@ -12,7 +12,7 @@ extractData();
 cleanup();
 
 function deletePriorCasks() {
-  rm('*.rb');
+  rm('Casks/*.rb');
 }
 
 function cloneMonoid() {
@@ -26,7 +26,7 @@ function extractData(data) {
     })
     .forEach(function (file) {
       var caskFileName = 'font-' + file.replace('.zip', '').toLowerCase() + '.rb';
-      fs.writeFileSync(caskFileName, createCask(file));
+      fs.writeFileSync('Casks/' + caskFileName, createCask(file));
       console.log('Created file: ' + caskFileName);
     });
 }
