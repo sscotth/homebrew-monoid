@@ -56,7 +56,7 @@ function createCask(file) {
   license :ofl
 
   font 'Monoid-Bold${seperator}${variant}.ttf'
-  font 'Monoid-Oblique${seperator}${variant}.ttf'
+  font 'Monoid-Italic${seperator}${variant}.ttf'
   font 'Monoid-Regular${seperator}${variant}.ttf'
   font 'Monoid-Retina${seperator}${variant}.ttf'${caveat}
 end
