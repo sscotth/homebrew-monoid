@@ -37,12 +37,15 @@ function extractData(data) {
     })
     .forEach(function (file) {
       var caskFileName = 'font-' + file.replace('.zip', '').toLowerCase() + '.rb';
-      fs.writeFileSync('Casks/' + caskFileName, createCask(file));
+      fs.writeFileSync('Casks/' + caskFileName, createBaseCasks(file));
       console.log('Created file: ' + caskFileName);
     });
+
+  fs.writeFileSync('Casks/font-monoisome.rb', createIconCask());
+  console.log('Created file: font-monoisome.rb');
 }
 
-function createCask(file) {
+function createBaseCasks(file) {
   var fileName = file.replace('.zip', '');
   var variant = fileName.substr(7);
   var seperator = variant ? '-' : '';
@@ -70,6 +73,21 @@ function createCask(file) {
   font 'Monoid-Italic${seperator}${variant}.ttf'
   font 'Monoid-Regular${seperator}${variant}.ttf'
   font 'Monoid-Retina${seperator}${variant}.ttf'${caveat}
+end
+`
+}
+
+function createIconCask() {
+  return `cask :v1 => 'font-monoisome' do
+  version :latest
+  sha256 :no_check
+
+  # github.com is the official download host per the vendor homepage
+  url 'https://github.com/larsenwork/monoid/blob/master/Monoisome/Monoisome-Regular.ttf?raw=true'
+  homepage 'http://larsenwork.com/monoid/'
+  license :ofl
+
+  font 'Monoisome-Regular.ttf'
 end
 `
 }
