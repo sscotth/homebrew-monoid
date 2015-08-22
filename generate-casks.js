@@ -7,16 +7,27 @@ var rm = require('rimraf').sync;
 
 cleanup();
 deletePriorCasks();
-cloneMonoid();
-extractData();
-cleanup();
+cloneMonoid(function () {
+  extractData();
+  cleanup();
+});
 
 function deletePriorCasks() {
-  rm('Casks/*.rb');
+  console.log('Deleting prior casks');
+  rm('Casks');
+  fs.mkdir('Casks');
 }
 
-function cloneMonoid() {
-  cp.execSync('git clone --depth 1 -b release https://github.com/larsenwork/monoid _tmp');
+function cloneMonoid(cb) {
+  process.stdout.write('Retrieving larsenwork/monoid repository.');
+  var progress = setInterval(function () {
+    process.stdout.write('.');
+  }, 1000);
+
+  cp.exec('git clone --depth 1 -b release https://github.com/larsenwork/monoid _tmp', function () {
+    clearInterval(progress);
+    cb();
+  });
 }
 
 function extractData(data) {
@@ -64,5 +75,6 @@ end
 }
 
 function cleanup() {
+  console.log('Cleaning up');
   rm('_tmp');
 }
