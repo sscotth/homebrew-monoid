@@ -1,10 +1,10 @@
-# homebrew-monoid
+# Homebrew-Monoid
 
 <img alt="Monoid Banner" src="https://github.com/andreaslarsen/monoid/raw/master/Utilities/Images/MonoidReadme.png" />
 
 **Homebrew-Monoid** is a Homebrew Tap which allows you to use the same friendly Homebrew-style CLI workflow for the installation of binary font files from the Monoid family on your Mac.
 
-Initially this was [proposed to be included in the main Homebrew-Fonts repo](https://github.com/caskroom/homebrew-fonts/pull/364), but it was decided to include only the [main variant](https://github.com/caskroom/homebrew-fonts/pull/370), and later the [monoisome variant](https://github.com/caskroom/homebrew-fonts/pull/371). Additionaly, a caveat was included to use a third-party cask for users requiring a different variant. Initially, an opportunity was given to [larsenwork](https://github.com/larsenwork) to create and control this cask, but he [declined](https://github.com/larsenwork/monoid/issues/80). Therefore, this repo was created.
+Initially the code contained in this repo was [proposed to be included in the main Homebrew-Fonts repo](https://github.com/caskroom/homebrew-fonts/pull/364), but it was decided to include only the [main variant](https://github.com/caskroom/homebrew-fonts/pull/370), and later the [monoisome variant](https://github.com/caskroom/homebrew-fonts/pull/371). Additionaly, a caveat was included to use a third-party cask for users requiring a different variant. Initially, an opportunity was given to [larsenwork](https://github.com/larsenwork) to create and control this cask, but he [declined](https://github.com/larsenwork/monoid/issues/80). Therefore, this repo was created.
 
 ## Prerequisites
 
@@ -31,4 +31,4 @@ If larsenwork decides to support Homebrew-Fonts and maintain this cask, I will t
 
 ## Licence
 
-Homebrew, homebrew-cask, and homebrew-fonts are all released under the [BSD 2 Clause (NetBSD) license](https://github.com/Homebrew/homebrew/tree/master/LICENSE.txt). Monoid is dual licensed under either [MIT](https://github.com/larsenwork/monoid#the-mit-license-mit) or [OFL](https://github.com/larsenwork/monoid#sil-open-font-license) licenses. Monoisome is released under the [OFL license](https://github.com/larsenwork/monoid#sil-open-font-license). homebrew-monoid is released under the [MIT license](https://github.com/sscotth/homebrew-monoid/blob/master/LICENSE).
+Homebrew, homebrew-cask, and homebrew-fonts are all released under the [BSD 2 Clause (NetBSD) license](https://github.com/Homebrew/homebrew/tree/master/LICENSE.txt). Monoid is dual licensed under either [MIT](https://github.com/larsenwork/monoid#the-mit-license-mit) or [OFL](https://github.com/larsenwork/monoid#sil-open-font-license) licenses. Monoisome is released under the [OFL license](https://github.com/larsenwork/monoid#sil-open-font-license). Homebrew-Monoid is released under the [MIT license](https://github.com/sscotth/homebrew-monoid/blob/master/LICENSE).
