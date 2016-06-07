@@ -1,9 +1,10 @@
-cask :v1 => 'font-monoid-tight-large-dollar-l' do
+cask 'font-monoid-tight-large-dollar-l' do
   version :latest
   sha256 :no_check
 
-  # github.com is the official download host per the vendor homepage
+  # github.com/larsenwork/monoid was verified as official when first introduced to the cask
   url 'https://github.com/larsenwork/monoid/blob/release/Monoid-Tight-Large-Dollar-l.zip?raw=true'
+  name 'Monoid-Tight-Large-Dollar-l'
   homepage 'http://larsenwork.com/monoid/'
   license :ofl
 

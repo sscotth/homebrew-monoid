@@ -1,9 +1,10 @@
-cask :v1 => 'font-monoid-xtrasmall' do
+cask 'font-monoid-xtrasmall' do
   version :latest
   sha256 :no_check
 
-  # github.com is the official download host per the vendor homepage
+  # github.com/larsenwork/monoid was verified as official when first introduced to the cask
   url 'https://github.com/larsenwork/monoid/blob/release/Monoid-XtraSmall.zip?raw=true'
+  name 'Monoid-XtraSmall'
   homepage 'http://larsenwork.com/monoid/'
   license :ofl
 

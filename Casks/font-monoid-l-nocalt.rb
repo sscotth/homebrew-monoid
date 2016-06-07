@@ -1,9 +1,10 @@
-cask :v1 => 'font-monoid-l-nocalt' do
+cask 'font-monoid-l-nocalt' do
   version :latest
   sha256 :no_check
 
-  # github.com is the official download host per the vendor homepage
+  # github.com/larsenwork/monoid was verified as official when first introduced to the cask
   url 'https://github.com/larsenwork/monoid/blob/release/Monoid-l-NoCalt.zip?raw=true'
+  name 'Monoid-l-NoCalt'
   homepage 'http://larsenwork.com/monoid/'
   license :ofl
 
