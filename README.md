@@ -1,4 +1,4 @@
-# Homebrew-Monoid
+# Homebrew-Monoid [![Build Status](https://travis-ci.org/sscotth/homebrew-monoid.svg?branch=master)](https://travis-ci.org/sscotth/homebrew-monoid)
 
 <img alt="Monoid Banner" src="https://github.com/andreaslarsen/monoid/raw/master/Utilities/Images/MonoidReadme.png" />
 
