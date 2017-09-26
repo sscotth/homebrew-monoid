@@ -103,9 +103,13 @@ function createIconCask() {
   url 'https://github.com/larsenwork/monoid/blob/master/Monoisome/Monoisome-Regular.ttf?raw=true'
   name 'Monoisome'
   homepage 'http://larsenwork.com/monoid/'
-  license :ofl
 
   font 'Monoisome-Regular.ttf'
+
+  caveats <<-EOS.undent
+    #{token} is licensed with OFL.
+    https://github.com/larsenwork/monoid/tree/master#license
+  EOS
 end
 `
 }
