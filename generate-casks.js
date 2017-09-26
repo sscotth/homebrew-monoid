@@ -15,7 +15,7 @@ cloneMonoid(function () {
 function deletePriorCasks() {
   console.log('Deleting prior casks');
   rm('Casks');
-  fs.mkdir('Casks');
+  fs.mkdirSync('Casks');
 }
 
 function cloneMonoid(cb) {
