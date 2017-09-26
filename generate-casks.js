@@ -19,13 +19,24 @@ function deletePriorCasks() {
 }
 
 function cloneMonoid(cb) {
-  process.stdout.write('Retrieving larsenwork/monoid repository.');
-  var progress = setInterval(function () {
-    process.stdout.write('.');
-  }, 1000);
 
-  cp.exec('git clone --depth 1 -b release https://github.com/larsenwork/monoid _tmp', function () {
-    clearInterval(progress);
+  process.stdout.write('Retrieving larsenwork/monoid repository:\n\t')
+
+  var clone = cp.spawn('git', ['clone', '--depth', '1', '-b', 'release', '--progress', 'https://github.com/larsenwork/monoid', '_tmp']);
+
+  function writeOut(data){
+    if(data.includes('\r')||data.includes('\n')){
+      data = Buffer.from(data.toString().replace(/([\r\n])/g,'$1\t'))
+    }
+    process.stdout.write(data);
+  }
+
+  clone.stdout.on('data', writeOut);
+
+  clone.stderr.on('data', writeOut);
+
+  clone.on('close', (code) => {
+    console.log(`git clone exited with code ${code}`);
     cb();
   });
 }
