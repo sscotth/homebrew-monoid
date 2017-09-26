@@ -61,15 +61,18 @@ function createBaseCasks(file) {
   var variant = fileName.substr(7);
   var seperator = variant ? '-' : '';
 
-  var caveat = file === 'Monoid.zip'
-    ? `
+  var caveat = `
+    #{token} is dual licensed with MIT and OFL licenses.
+    https://github.com/larsenwork/monoid/tree/master#license`
+;
 
-  caveats <<-EOS.undent
+  if(file === 'Monoid.zip'){
+    caveat += `
+
     #{token} only installs the Normal Weight, Medium LineHeight, with Ligatures variant.
     To get other styles, please tap the sscotth/homebrew-monoid repo
-      brew tap sscotth/monoid
-  EOS`
-    : '';
+      brew tap sscotth/monoid`
+  }
 
   return `cask 'font-${fileName.toLowerCase()}' do
   version :latest
@@ -79,12 +82,14 @@ function createBaseCasks(file) {
   url 'https://github.com/larsenwork/monoid/blob/release/${file}?raw=true'
   name 'Monoid${seperator}${variant}'
   homepage 'http://larsenwork.com/monoid/'
-  license :ofl
 
   font 'Monoid-Bold${seperator}${variant}.ttf'
   font 'Monoid-Italic${seperator}${variant}.ttf'
   font 'Monoid-Regular${seperator}${variant}.ttf'
-  font 'Monoid-Retina${seperator}${variant}.ttf'${caveat}
+  font 'Monoid-Retina${seperator}${variant}.ttf'
+
+  caveats <<-EOS.undent${caveat}
+  EOS
 end
 `
 }
