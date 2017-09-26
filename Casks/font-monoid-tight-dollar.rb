@@ -6,10 +6,14 @@ cask 'font-monoid-tight-dollar' do
   url 'https://github.com/larsenwork/monoid/blob/release/Monoid-Tight-Dollar.zip?raw=true'
   name 'Monoid-Tight-Dollar'
   homepage 'http://larsenwork.com/monoid/'
-  license :ofl
 
   font 'Monoid-Bold-Tight-Dollar.ttf'
   font 'Monoid-Italic-Tight-Dollar.ttf'
   font 'Monoid-Regular-Tight-Dollar.ttf'
   font 'Monoid-Retina-Tight-Dollar.ttf'
+
+  caveats <<-EOS.undent
+    #{token} is dual licensed with MIT and OFL licenses.
+    https://github.com/larsenwork/monoid/tree/master#license
+  EOS
 end

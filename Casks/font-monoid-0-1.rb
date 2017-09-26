@@ -6,10 +6,14 @@ cask 'font-monoid-0-1' do
   url 'https://github.com/larsenwork/monoid/blob/release/Monoid-0-1.zip?raw=true'
   name 'Monoid-0-1'
   homepage 'http://larsenwork.com/monoid/'
-  license :ofl
 
   font 'Monoid-Bold-0-1.ttf'
   font 'Monoid-Italic-0-1.ttf'
   font 'Monoid-Regular-0-1.ttf'
   font 'Monoid-Retina-0-1.ttf'
+
+  caveats <<-EOS.undent
+    #{token} is dual licensed with MIT and OFL licenses.
+    https://github.com/larsenwork/monoid/tree/master#license
+  EOS
 end

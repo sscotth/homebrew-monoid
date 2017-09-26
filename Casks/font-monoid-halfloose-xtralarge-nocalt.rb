@@ -6,10 +6,14 @@ cask 'font-monoid-halfloose-xtralarge-nocalt' do
   url 'https://github.com/larsenwork/monoid/blob/release/Monoid-HalfLoose-XtraLarge-NoCalt.zip?raw=true'
   name 'Monoid-HalfLoose-XtraLarge-NoCalt'
   homepage 'http://larsenwork.com/monoid/'
-  license :ofl
 
   font 'Monoid-Bold-HalfLoose-XtraLarge-NoCalt.ttf'
   font 'Monoid-Italic-HalfLoose-XtraLarge-NoCalt.ttf'
   font 'Monoid-Regular-HalfLoose-XtraLarge-NoCalt.ttf'
   font 'Monoid-Retina-HalfLoose-XtraLarge-NoCalt.ttf'
+
+  caveats <<-EOS.undent
+    #{token} is dual licensed with MIT and OFL licenses.
+    https://github.com/larsenwork/monoid/tree/master#license
+  EOS
 end

@@ -6,7 +6,6 @@ cask 'font-monoid' do
   url 'https://github.com/larsenwork/monoid/blob/release/Monoid.zip?raw=true'
   name 'Monoid'
   homepage 'http://larsenwork.com/monoid/'
-  license :ofl
 
   font 'Monoid-Bold.ttf'
   font 'Monoid-Italic.ttf'
@@ -14,6 +13,9 @@ cask 'font-monoid' do
   font 'Monoid-Retina.ttf'
 
   caveats <<-EOS.undent
+    #{token} is dual licensed with MIT and OFL licenses.
+    https://github.com/larsenwork/monoid/tree/master#license
+
     #{token} only installs the Normal Weight, Medium LineHeight, with Ligatures variant.
     To get other styles, please tap the sscotth/homebrew-monoid repo
       brew tap sscotth/monoid
