@@ -12,7 +12,7 @@ cask 'font-monoid-large-dollar-nocalt' do
   font 'Monoid-Regular-Large-Dollar-NoCalt.ttf'
   font 'Monoid-Retina-Large-Dollar-NoCalt.ttf'
 
-  caveats <<-EOS.undent
+  caveats <<~EOS
     #{token} is dual licensed with MIT and OFL licenses.
     https://github.com/larsenwork/monoid/tree/master#license
   EOS

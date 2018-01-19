@@ -9,7 +9,7 @@ cask 'font-monoisome' do
 
   font 'Monoisome-Regular.ttf'
 
-  caveats <<-EOS.undent
+  caveats <<~EOS
     #{token} is licensed with OFL.
     https://github.com/larsenwork/monoid/tree/master#license
   EOS
