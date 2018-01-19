@@ -41,7 +41,7 @@ function cloneMonoid(cb) {
   });
 }
 
-function extractData(data) {
+function extractData() {
   fs.readdirSync('_tmp')
     .filter(function (file) {
       return file.substr(-4) === '.zip';
@@ -88,7 +88,7 @@ function createBaseCasks(file) {
   font 'Monoid-Regular${seperator}${variant}.ttf'
   font 'Monoid-Retina${seperator}${variant}.ttf'
 
-  caveats <<-EOS.undent${caveat}
+  caveats <<~EOS${caveat}
   EOS
 end
 `
@@ -106,7 +106,7 @@ function createIconCask() {
 
   font 'Monoisome-Regular.ttf'
 
-  caveats <<-EOS.undent
+  caveats <<~EOS
     #{token} is licensed with OFL.
     https://github.com/larsenwork/monoid/tree/master#license
   EOS
