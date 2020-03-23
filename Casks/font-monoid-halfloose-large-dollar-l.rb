@@ -6,10 +6,14 @@ cask 'font-monoid-halfloose-large-dollar-l' do
   url 'https://github.com/larsenwork/monoid/blob/release/Monoid-HalfLoose-Large-Dollar-l.zip?raw=true'
   name 'Monoid-HalfLoose-Large-Dollar-l'
   homepage 'http://larsenwork.com/monoid/'
-  license :ofl
 
   font 'Monoid-Bold-HalfLoose-Large-Dollar-l.ttf'
   font 'Monoid-Italic-HalfLoose-Large-Dollar-l.ttf'
   font 'Monoid-Regular-HalfLoose-Large-Dollar-l.ttf'
   font 'Monoid-Retina-HalfLoose-Large-Dollar-l.ttf'
+
+  caveats <<~EOS
+    #{token} is dual licensed with MIT and OFL licenses.
+    https://github.com/larsenwork/monoid/tree/master#license
+  EOS
 end

@@ -15,22 +15,33 @@ cloneMonoid(function () {
 function deletePriorCasks() {
   console.log('Deleting prior casks');
   rm('Casks');
-  fs.mkdir('Casks');
+  fs.mkdirSync('Casks');
 }
 
 function cloneMonoid(cb) {
-  process.stdout.write('Retrieving larsenwork/monoid repository.');
-  var progress = setInterval(function () {
-    process.stdout.write('.');
-  }, 1000);
 
-  cp.exec('git clone --depth 1 -b release https://github.com/larsenwork/monoid _tmp', function () {
-    clearInterval(progress);
+  process.stdout.write('Retrieving larsenwork/monoid repository:\n\t')
+
+  var clone = cp.spawn('git', ['clone', '--depth', '1', '-b', 'release', '--progress', 'https://github.com/larsenwork/monoid', '_tmp']);
+
+  function writeOut(data){
+    if(data.includes('\r')||data.includes('\n')){
+      data = Buffer.from(data.toString().replace(/([\r\n])/g,'$1\t'))
+    }
+    process.stdout.write(data);
+  }
+
+  clone.stdout.on('data', writeOut);
+
+  clone.stderr.on('data', writeOut);
+
+  clone.on('close', (code) => {
+    console.log(`git clone exited with code ${code}`);
     cb();
   });
 }
 
-function extractData(data) {
+function extractData() {
   fs.readdirSync('_tmp')
     .filter(function (file) {
       return file.substr(-4) === '.zip';
@@ -50,15 +61,18 @@ function createBaseCasks(file) {
   var variant = fileName.substr(7);
   var seperator = variant ? '-' : '';
 
-  var caveat = file === 'Monoid.zip'
-    ? `
+  var caveat = `
+    #{token} is dual licensed with MIT and OFL licenses.
+    https://github.com/larsenwork/monoid/tree/master#license`
+;
 
-  caveats <<-EOS.undent
+  if(file === 'Monoid.zip'){
+    caveat += `
+
     #{token} only installs the Normal Weight, Medium LineHeight, with Ligatures variant.
     To get other styles, please tap the sscotth/homebrew-monoid repo
-      brew tap sscotth/monoid
-  EOS`
-    : '';
+      brew tap sscotth/monoid`
+  }
 
   return `cask 'font-${fileName.toLowerCase()}' do
   version :latest
@@ -68,12 +82,14 @@ function createBaseCasks(file) {
   url 'https://github.com/larsenwork/monoid/blob/release/${file}?raw=true'
   name 'Monoid${seperator}${variant}'
   homepage 'http://larsenwork.com/monoid/'
-  license :ofl
 
   font 'Monoid-Bold${seperator}${variant}.ttf'
   font 'Monoid-Italic${seperator}${variant}.ttf'
   font 'Monoid-Regular${seperator}${variant}.ttf'
-  font 'Monoid-Retina${seperator}${variant}.ttf'${caveat}
+  font 'Monoid-Retina${seperator}${variant}.ttf'
+
+  caveats <<~EOS${caveat}
+  EOS
 end
 `
 }
@@ -87,9 +103,13 @@ function createIconCask() {
   url 'https://github.com/larsenwork/monoid/blob/master/Monoisome/Monoisome-Regular.ttf?raw=true'
   name 'Monoisome'
   homepage 'http://larsenwork.com/monoid/'
-  license :ofl
 
   font 'Monoisome-Regular.ttf'
+
+  caveats <<~EOS
+    #{token} is licensed with OFL.
+    https://github.com/larsenwork/monoid/tree/master#license
+  EOS
 end
 `
 }

@@ -6,10 +6,14 @@ cask 'font-monoid-xtrasmall-dollar-0-1-l' do
   url 'https://github.com/larsenwork/monoid/blob/release/Monoid-XtraSmall-Dollar-0-1-l.zip?raw=true'
   name 'Monoid-XtraSmall-Dollar-0-1-l'
   homepage 'http://larsenwork.com/monoid/'
-  license :ofl
 
   font 'Monoid-Bold-XtraSmall-Dollar-0-1-l.ttf'
   font 'Monoid-Italic-XtraSmall-Dollar-0-1-l.ttf'
   font 'Monoid-Regular-XtraSmall-Dollar-0-1-l.ttf'
   font 'Monoid-Retina-XtraSmall-Dollar-0-1-l.ttf'
+
+  caveats <<~EOS
+    #{token} is dual licensed with MIT and OFL licenses.
+    https://github.com/larsenwork/monoid/tree/master#license
+  EOS
 end
